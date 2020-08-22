@@ -1,0 +1,65 @@
+.nav {
+   grid-area: n;
+   background-color: #5A263F;
+   padding: 20px;
+}
+.item{
+   margin-bottom: 10px;
+}
+.item a {
+   color: white;
+   text-decoration: none;
+   padding: 5px;
+}
+.item a:hover{
+   text-shadow: 0 0 20px white;
+   border-radius: 5px;
+   transition: 0.1s all;
+}
+.item a.active {
+   color: gold;
+}
+
+
+.itemFriends{
+   margin-top: 50px;
+   text-align: center;
+}
+.itemFriends a {
+   color: white;
+   text-decoration: none;
+   padding: 5px;
+   font-size: 30px;
+}
+.friend {
+   margin-bottom: 10px;
+   overflow: hidden;
+   word-wrap: break-word;
+}
+.name {
+   font-size: 13px;
+}
+.wrapp{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   margin-top: 15px;
+
+}
+.avatar {
+   width: 40px;
+   height: 40px;
+   background-color: gold;
+   border-radius: 50%;
+   margin: 0 auto 10px;
+   overflow: hidden;
+}
+.avatar img {
+   max-width: 100%;
+   max-height: 100%;
+   width: 100%;
+   height: 100%;
+   vertical-align: top;
+   border-radius: 50%;
+   margin-left: -5px ;
+}
