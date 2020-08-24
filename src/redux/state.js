@@ -2,12 +2,6 @@ import profileReducer from './profile-reducer';
 import dialogsReducer from './dialogs-reducer';
 import sitebarReducer from './sitebar-reducer';
 
-
-// const UPDATE_NEWPOST_TEXT = 'UPDATE-NEWPOST-TEXT';
-// const ADD_POST = 'ADD-POST';
-
-// const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
-// const POST_MESSAGE_TEXT = 'POST-MESSAGE-TEXT';
 let store = {
     _state: {
         profilePage: {
@@ -61,60 +55,6 @@ let store = {
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage,action);
         this._state.sitebar = sitebarReducer(this._state.sitebar, action);
         this._callSubscriber(this._state);
-
-        // if (action.type === ADD_POST) {
-        //     let newPost = {
-        //         id: 5,
-        //         messages: this._state.profilePage.newPostText,
-        //         likesCount: 0
-        //     };
-        //     this._state.profilePage.postsData.push(newPost);
-        //     this._callSubscriber(this._state);
-        // }
-        // else if (action.type === UPDATE_NEWPOST_TEXT) {
-        //     this._state.profilePage.newPostText = action.postText;
-        //     this._callSubscriber(this);
-        // }
-        // else if (action.type === UPDATE_MESSAGE_TEXT) {
-        //     this._state.dialogsPage.textMessages = action.messageText;
-        //     this._callSubscriber(this);
-        // }
-        // else if (action.type === POST_MESSAGE_TEXT) {
-        //     let text = this._state.dialogsPage.textMessages;
-        //     let newMessages = {
-        //         id: 1,
-        //         messages: text
-        //     }
-        //     this._state.dialogsPage.messages.push(newMessages);
-        //     text = '';
-        //     this._callSubscriber(this);
-        // }
-    }
-}
-
-export const addPostActionCreator = () => {
-    return {
-        type: 'ADD-POST'
-    }
-}
-
-export const onPostChangeActionCreator = (text) => {
-    return {
-        type: 'UPDATE-NEWPOST-TEXT',
-        postText: text
-    }
-}
-
-export const messageChangeCreator = (text) => {
-    return {
-        type: 'UPDATE-MESSAGE-TEXT',
-        messageText: text
-    }
-}
-
-export const postMessageChangeCreator = () => {
-    return {
-        type: 'POST-MESSAGE-TEXT'
     }
 }
 
