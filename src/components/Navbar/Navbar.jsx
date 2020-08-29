@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 
 
 const Navbar = (props) => {
-    let avaName = props.sitebar.friends.map( a => (<Friend name={a.name} src={a.ava}/>))
+    // let avaName = props.sitebar.friends.map( a => (<Friend name={a.name} src={a.ava}/>))
     
     return (
         <nav className={s.nav}>
@@ -27,23 +27,23 @@ const Navbar = (props) => {
             <div className={s.itemFriends}>
                 <NavLink activeClassName={s.active} to="/friends">Friends</NavLink>
                 <div className={s.wrapp}>
-                    {avaName}
+                    {/* {avaName} */}
                 </div>
             </div>
         </nav>
     )
 }
 
-const Friend = (props) => {
-    return (
-        <div className={s.friend}>
-            <div className={s.avatar}>
-                <NavLink activeClassName={s.active} to="/#">
-                    <img src={props.src}/>
-                </NavLink>
-            </div>
-            <div className={s.name}>{props.name}</div>
-        </div>
-    )
-}
+// const Friend = (props) => {
+//     return (
+//         <div className={s.friend}>
+//             <div className={s.avatar}>
+//                 <NavLink activeClassName={s.active} to="/#">
+//                     <img src={props.src}/>
+//                 </NavLink>
+//             </div>
+//             <div className={s.name}>{props.name}</div>
+//         </div>
+//     )
+// }
 export default Navbar;
