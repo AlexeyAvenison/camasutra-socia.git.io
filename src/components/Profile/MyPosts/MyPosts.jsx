@@ -5,6 +5,7 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
     let posts = props.profilePage.map(p => <Post message={p.messages} LikeCount={p.likesCount} />);
+    let bodyPost = props.newPostText;
 
     let addPost = () => {
         props.addPost();
@@ -16,7 +17,7 @@ const MyPosts = (props) => {
         <div className={s.myPosts}>
             <h3>My posts</h3>
             <div className={s.wrap}>
-                <textarea onChange={postChange} className={s.textArea}></textarea>
+                <textarea onChange={postChange} value={bodyPost} className={s.textArea}></textarea>
                 <button onClick={addPost} className={s.button}>Add post</button>
             </div>
             <div className={s.posts}>

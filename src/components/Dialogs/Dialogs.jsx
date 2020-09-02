@@ -5,9 +5,9 @@ import Message from "./Message/Message";
 
 
 const Dialogs = (props) => {
-    
     let dialogsElements = props.dialogs.map(dialogs => (<DialogsItem avatar={dialogs.ava} name={dialogs.name} id={dialogs.id} />));
     let messagesItem = props.messages.map(messages => (<Message messages={messages.messages} />));
+    let messageBody = props.textMessages;
 
     let onPostMessage = () => {
         props.postMessage();
@@ -26,7 +26,7 @@ const Dialogs = (props) => {
             <div className={s.dialogsMassages}>
                 <div>{messagesItem}</div>
                 <div>
-                    <textarea onChange={messagesChanges} className={s.textMessages}></textarea>
+                    <textarea onChange={messagesChanges} value={messageBody} className={s.textMessages}></textarea>
                     <button onClick={onPostMessage} className={s.postMessage}>Post</button>
                 </div>
 

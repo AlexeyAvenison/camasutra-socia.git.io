@@ -3,31 +3,12 @@ import Dialogs from './Dialogs';
 import { connect } from "react-redux";
 
 
-// const DialogsContainer = (props) => {
-//     let state = props.store.getState();
-
-//     let postMessage = () => {
-//         let action = postMessageChangeCreator();
-//         props.store.dispatch(action);
-//     }
-
-//     let onMessagesChanges = (text) => {
-//         let action = messageChangeCreator(text)
-//         props.store.dispatch(action);
-//     }
-
-//     debugger;
-//     return (
-//         <Dialogs postMessage={postMessage} onMessagesChanges={onMessagesChanges}
-//             dialogs={state.dialogsPage.dialogs}
-//             messages={state.dialogsPage.messages} />
-//     )
-// }
 
 let mapStateToProps = (state) => {
     return {
         dialogs: state.dialogsPage.dialogs,
-        messages: state.dialogsPage.messages
+        messages: state.dialogsPage.messages,
+        textMessages: state.dialogsPage.textMessages
     }
 }
 
