@@ -36,14 +36,14 @@ const dialogsReducer = (state = initialState, action) => {
 
 export const messageChangeCreator = (text) => {
    return {
-      type: 'UPDATE-MESSAGE-TEXT',
+      type: UPDATE_MESSAGE_TEXT,
       messageText: text
    }
 }
 
 export const postMessageChangeCreator = () => {
    return {
-      type: 'POST-MESSAGE-TEXT'
+      type: POST_MESSAGE_TEXT
    }
 };
 

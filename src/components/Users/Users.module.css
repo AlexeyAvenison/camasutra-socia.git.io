@@ -1,0 +1,37 @@
+.wrapp {
+   padding: 15px;
+}
+.usersItem {
+   display: flex;
+   justify-content: space-between;
+   padding: 10px;
+}
+
+.wrapImg {
+   max-width: 50px;
+}
+.wrapImg img {
+   width: 100%;
+}
+.info {
+   display: flex;
+   justify-content: space-between;
+   padding: 10px;
+   background-color: #fff;
+   width: 85%;
+   margin-left: 5%;
+   border: 2px solid #000000;
+   border-radius: 10px;
+}
+.infoWrap{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+.usersItemBtn {
+   width: 100px;
+   padding: 5px;
+}
+.wrapImg  {
+   margin: 0 auto;
+}
