@@ -1,18 +1,23 @@
 import React from 'react';
 import s from './Users.module.css';
+import * as axios from 'axios';
 
 
 
 const Users = (props) => {
    if (props.users.length === 0) {
-      props.setUsers([
-         { id: 1, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Dima", location: { sity: "Minsk", country: "Belarus" }, status: "I am lookking", sub: false },
-         { id: 2, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Ivan", location: { sity: "Moscow", country: "Russia" }, status: "I am working", sub: false },
-         { id: 3, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Anna", location: { sity: "Kiev", country: "Ukraine" }, status: "I am a boss", sub: true },
-         { id: 4, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Bob", location: { sity: "Dnipro", country: "Ukraine" }, status: "I sub boss", sub: false }
-      ]);
+      axios.get("").then(response => {
+         props.setUsers(response.data.items)
+      });
+      props.setUsers(
+         [
+            { id: 1, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Dima", location: { sity: "Minsk", country: "Belarus" }, status: "I am lookking", sub: false },
+            { id: 2, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Ivan", location: { sity: "Moscow", country: "Russia" }, status: "I am working", sub: false },
+            { id: 3, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Anna", location: { sity: "Kiev", country: "Ukraine" }, status: "I am a boss", sub: true },
+            { id: 4, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Bob", location: { sity: "Dnipro", country: "Ukraine" }, status: "I sub boss", sub: false }
+         ]
+      )
    }
-
    return (
       <div className={s.wrapp}>
          {
@@ -35,7 +40,6 @@ const Users = (props) => {
                      <span className={s.country}>{u.location.country}</span>
                      <span className={s.sity}>{u.location.sity}</span>
                   </div>
-
                </div>
             </div>)
          }
