@@ -6,25 +6,18 @@ import * as axios from 'axios';
 
 const Users = (props) => {
    if (props.users.length === 0) {
-      axios.get("").then(response => {
+      axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
          props.setUsers(response.data.items)
       });
-      props.setUsers(
-         [
-            { id: 1, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Dima", location: { sity: "Minsk", country: "Belarus" }, status: "I am lookking", sub: false },
-            { id: 2, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Ivan", location: { sity: "Moscow", country: "Russia" }, status: "I am working", sub: false },
-            { id: 3, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Anna", location: { sity: "Kiev", country: "Ukraine" }, status: "I am a boss", sub: true },
-            { id: 4, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Bob", location: { sity: "Dnipro", country: "Ukraine" }, status: "I sub boss", sub: false }
-         ]
-      )
    }
+   
    return (
       <div className={s.wrapp}>
          {
             props.users.map(u => <div className={s.usersItem} key={u.id}>
                <div className='s.usersItem-ava'>
                   <div className={s.wrapImg}>
-                     <img src={u.ava} />
+                     <img src={u.photos.small != null ? u.photos.small : "https://pngimg.com/uploads/face/face_PNG5669.png"} />
                   </div>
                   {u.sub
                      ? <button onClick={() => { props.unfollow(u.id) }} className={s.usersItemBtn}>Unfollow</button>
@@ -37,8 +30,8 @@ const Users = (props) => {
                   </div>
 
                   <div className={s.infoWrap}>
-                     <span className={s.country}>{u.location.country}</span>
-                     <span className={s.sity}>{u.location.sity}</span>
+                     <span className={s.country}>{"u.location.country"}</span>
+                     <span className={s.sity}>{"u.location.sity"}</span>
                   </div>
                </div>
             </div>)
