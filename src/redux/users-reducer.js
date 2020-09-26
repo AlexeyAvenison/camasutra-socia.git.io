@@ -1,16 +1,16 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_COUNT = 'SET_TOTAL_COUNT';
 
 
 
 let initialState = {
-   users: [
-      // { id: 1, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Dima", location: { sity: "Minsk", country: "Belarus" }, status: "I am lookking", sub: false },
-      // { id: 2, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Ivan", location: { sity: "Moscow", country: "Russia" }, status: "I am working", sub: false },
-      // { id: 3, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Anna", location: { sity: "Kiev", country: "Ukraine" }, status: "I am a boss", sub: true },
-      // { id: 4, ava: 'https://pngimg.com/uploads/face/face_PNG5669.png', name: "Bob", location: { sity: "Dnipro", country: "Ukraine" }, status: "I sub boss", sub: false }
-   ]
+   users: [   ],
+   pageSize: 4,
+   totalCount: 0,
+   currentPage: 1
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -36,7 +36,13 @@ const usersReducer = (state = initialState, action) => {
             })
          }
       case SET_USERS: {
-         return { ...state, users: [...state.users, ...action.users] }
+         return { ...state, users: action.users }
+      }
+      case SET_CURRENT_PAGE: {
+         return { ...state, currentPage: action.currentPage }
+      }
+      case SET_TOTAL_COUNT: {
+         return { ...state, totalCount: action.count }
       }
       default:
          return state;
@@ -48,6 +54,10 @@ export const followAC = (userId) => ({ type: FOLLOW, userId })
 export const unfollowAC = (userId) => ({ type: UNFOLLOW, userId })
 
 export const setUsersAC = (users) => ({ type: SET_USERS, users })
+
+export const setCurrentPageAC = (currentPage) => ({ type: SET_CURRENT_PAGE, currentPage })
+
+export const setTotalUsersCount = (count) => ({ type: SET_TOTAL_COUNT, count })
 
 
 export default usersReducer;

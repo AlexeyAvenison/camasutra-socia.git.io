@@ -39,7 +39,7 @@ const Friend = (props) => {
         <div className={s.friend}>
             <div className={s.avatar}>
                 <NavLink activeClassName={s.active} to="/#">
-                    <img src={props.src}/>
+                    <img alt='ca' src={props.src}/>
                 </NavLink>
             </div>
             <div className={s.name}>{props.name}</div>
