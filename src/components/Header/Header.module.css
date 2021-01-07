@@ -3,9 +3,19 @@
    background-color: #0F1330;
    overflow: hidden;
    padding: 10px;
+   display: flex;
+   justify-content: space-between;
 }
 
 .header img {
    width: 50px;
    max-width: 50px;
+}
+.header .login {
+   display: block;
+   color: azure;
+   font-size: 20px;
+   line-height: 50px;
+   text-decoration: none;
+   margin-right: 20px;
 }
