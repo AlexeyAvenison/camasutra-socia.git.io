@@ -1,30 +1,17 @@
 import { connect } from 'react-redux';
-import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from '../../redux/users-reducer';
+import { follow, unfollow, setTotalUsersCount } from '../../redux/users-reducer';
 import React from 'react';
 import Users from './Users';
 import preloader from './../../assets/25.svg';
-import {usersAPI } from '../../api/api';
-import { toogleFollowingInProgress } from './../../redux/users-reducer';
+import { toogleFollowingInProgress, onPageChanged, getUsers } from './../../redux/users-reducer';
 class UsersContainerAPI extends React.Component {
 
    componentDidMount() {
-      this.props.toggleIsFetching(true);
-      usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-      .then(data => {
-         this.props.toggleIsFetching(false);
-         this.props.setUsers(data.items);
-         this.props.setTotalUsersCount(data.totalCount);
-      });
+      this.props.getUsers(this.props.currentPage, this.props.pageSize);
    };
 
    onPageChanged = (pageNumber) => {
-      this.props.toggleIsFetching(true);
-      this.props.setCurrentPage(pageNumber);
-      usersAPI.onPageChanged(pageNumber, this.props.pageSize)
-         .then(data => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items);
-         });
+      this.props.onPageChanged(pageNumber, this.props.pageSize);
    };
 
    render() {
@@ -37,7 +24,6 @@ class UsersContainerAPI extends React.Component {
             totalCount={this.props.totalCount}
             pageSize={this.props.pageSize}
             currentPage={this.props.currentPage}
-            toogleFollowingInProgress={this.props.toogleFollowingInProgress}
             followingInProgress={this.props.followingInProgress} />
       </>
    }
@@ -55,7 +41,6 @@ let mapStateToProps = (state) => {
 }
 
 const UsersContainer = connect(mapStateToProps, {
-   follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toogleFollowingInProgress
-})(UsersContainerAPI);
+   follow, unfollow, setTotalUsersCount, toogleFollowingInProgress, getUsers, onPageChanged})(UsersContainerAPI);
 
 export default UsersContainer;

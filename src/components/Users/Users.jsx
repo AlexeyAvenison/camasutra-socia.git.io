@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Users.module.css';
@@ -30,39 +29,13 @@ const Users = (props) => {
                      </NavLink>
                   </div>
                   {u.sub
-                     ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                        props.toogleFollowingInProgress(true, u.id);
-                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                           withCredentials: true,
-                           headers : {
-                              "API-KEY": "4d2cf2d1-aa6d-4471-bfce-e89bac64f124"
-                           }
-                        })
-                           .then(response => {
-                              if(response.data.resultCode === 0) {
-                                 props.unfollow(u.id)
-                              }
-                              props.toogleFollowingInProgress(false, u.id);
-                           });
-                        
+                     ? <button disabled={props.followingInProgress.some(id => id === u.id)}
+                        onClick={() => { props.unfollow(u.id) }}
+                        className={s.usersItemBtn}>Unfollow</button>
 
-                     }} className={s.usersItemBtn}>Unfollow</button>
-                     : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
-                        props.toogleFollowingInProgress(true, u.id);
-                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, null, {
-                           withCredentials: true,
-                           headers : {
-                              "API-KEY": "4d2cf2d1-aa6d-4471-bfce-e89bac64f124"
-                           }
-                        })
-                           .then(response => {
-                              if(response.data.resultCode === 0) {
-                                 props.follow(u.id)
-                              }
-                              props.toogleFollowingInProgress(false, u.id);
-                           });
-
-                     }} className={s.usersItemBtn}>Follow</button>}
+                     : <button disabled={props.followingInProgress.some(id => id === u.id)}
+                        onClick={() => { props.follow(u.id) }}
+                        className={s.usersItemBtn}>Follow</button>}
                </div>
                <div className={s.info}>
                   <div className={s.infoWrap}>
