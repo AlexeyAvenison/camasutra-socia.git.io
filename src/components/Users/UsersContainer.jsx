@@ -4,6 +4,7 @@ import React from 'react';
 import Users from './Users';
 import preloader from './../../assets/25.svg';
 import { toogleFollowingInProgress, onPageChanged, getUsers } from './../../redux/users-reducer';
+import { withAuthRedirect } from '../../hok/withAuthRedired';
 class UsersContainerAPI extends React.Component {
 
    componentDidMount() {
@@ -28,6 +29,7 @@ class UsersContainerAPI extends React.Component {
       </>
    }
 }
+let AuthRedirectComponent = withAuthRedirect(UsersContainerAPI);
 
 let mapStateToProps = (state) => {
    return {
@@ -41,6 +43,6 @@ let mapStateToProps = (state) => {
 }
 
 const UsersContainer = connect(mapStateToProps, {
-   follow, unfollow, setTotalUsersCount, toogleFollowingInProgress, getUsers, onPageChanged})(UsersContainerAPI);
+   follow, unfollow, setTotalUsersCount, toogleFollowingInProgress, getUsers, onPageChanged})(AuthRedirectComponent);
 
 export default UsersContainer;
