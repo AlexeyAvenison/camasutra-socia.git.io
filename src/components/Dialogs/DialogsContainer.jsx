@@ -2,8 +2,7 @@ import { messageChangeCreator, postMessageChangeCreator } from "../../redux/dial
 import Dialogs from './Dialogs';
 import { connect } from "react-redux";
 import { withAuthRedirect } from "../../hok/withAuthRedired";
-
-
+import { compose } from "redux";
 
 let mapStateToProps = (state) => {
     return {
@@ -12,10 +11,6 @@ let mapStateToProps = (state) => {
         textMessages: state.dialogsPage.textMessages,
     }
 }
-
-let AuthRedirectComponent = withAuthRedirect(Dialogs);
-
-
 
 let mapDispatchToProps = (dispatch) => {
     return {
@@ -29,9 +24,7 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
-
-
-
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
-
-export default DialogsContainer;
+export default compose(
+    connect(mapStateToProps, mapDispatchToProps),
+    withAuthRedirect
+)(Dialogs);
