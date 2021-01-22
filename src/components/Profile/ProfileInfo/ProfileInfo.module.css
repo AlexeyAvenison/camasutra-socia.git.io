@@ -4,3 +4,12 @@
 .wrap {
    padding: 15px;
 }
+.span {
+   cursor: pointer;
+   display: block;
+   height: 50px;
+   border: 2px solid #000000;
+   width: 31%;
+   max-width: 100%;
+   padding: 10px;
+}
