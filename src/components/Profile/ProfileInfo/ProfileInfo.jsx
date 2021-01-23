@@ -14,7 +14,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.wrap}>
                 <img className={s.ava} src={props.profile.photos.large} />
-                <ProfileStatus status={'Hello'} />
+                <ProfileStatus status={'Hello All'} />
                 <div className={s.description}>{props.profile.aboutMe}</div>
                 <div>
                     <span>Мои контакты</span>
