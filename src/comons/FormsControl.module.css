@@ -1,0 +1,18 @@
+.formControl {
+   margin-top: 20px;
+}
+
+.error input,
+.error textarea {
+   border: 4px red solid;
+   border-radius: 8px;
+   margin-bottom: 10px;
+}
+.errorMassage {
+   font-weight: 500;
+   border-radius: 6px;
+   padding: 5px 10px;
+   background-color: white;
+   color: red;
+   font-size: 20px;
+}

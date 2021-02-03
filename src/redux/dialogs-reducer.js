@@ -1,4 +1,3 @@
-const UPDATE_MESSAGE_TEXT = 'UPDATE-MESSAGE-TEXT';
 const POST_MESSAGE_TEXT = 'POST-MESSAGE-TEXT';
 
 let initialState = {
@@ -12,38 +11,25 @@ let initialState = {
    ],
    messages: [
       { id: 1, messages: 'Hi' },
-   ],
-   textMessages: ''
+   ]
 };
 
 const dialogsReducer = (state = initialState, action) => {
    switch (action.type) {
-      case UPDATE_MESSAGE_TEXT:
-         return {
-            ...state,
-            textMessages: action.messageText
-         };
       case POST_MESSAGE_TEXT:
          return {
             ...state,
-            messages: [...state.messages, { id: 1, messages: state.textMessages }],
-            textMessages: ''
+            messages: [...state.messages, { id: 1, messages: action.messageBody }],
          };
       default:
          return state;
    }
 };
 
-export const messageChangeCreator = (text) => {
-   return {
-      type: UPDATE_MESSAGE_TEXT,
-      messageText: text
-   }
-}
 
-export const postMessageChangeCreator = () => {
+export const postMessage = (messageBody) => {
    return {
-      type: POST_MESSAGE_TEXT
+      type: POST_MESSAGE_TEXT, messageBody
    }
 };
 

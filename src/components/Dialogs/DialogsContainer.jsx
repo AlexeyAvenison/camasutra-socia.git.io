@@ -1,8 +1,9 @@
-import { messageChangeCreator, postMessageChangeCreator } from "../../redux/dialogs-reducer";
+import { postMessage } from "../../redux/dialogs-reducer";
 import Dialogs from './Dialogs';
 import { connect } from "react-redux";
 import { withAuthRedirect } from "../../hok/withAuthRedired";
 import { compose } from "redux";
+import { reduxForm } from "redux-form";
 
 let mapStateToProps = (state) => {
     return {
@@ -12,19 +13,8 @@ let mapStateToProps = (state) => {
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        postMessage: () => {
-            let action = postMessageChangeCreator();
-            dispatch(action);
-        },
-        onMessagesChanges: (text) => {
-            let action = messageChangeCreator(text)
-            dispatch(action);
-        }
-    }
-}
+
 export default compose(
-    connect(mapStateToProps, mapDispatchToProps),
+    connect(mapStateToProps, {postMessage}),
     withAuthRedirect
 )(Dialogs);
