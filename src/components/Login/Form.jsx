@@ -5,7 +5,7 @@ import {FormsCreator } from './../../comons/FormsControl';
 import { required } from './../../utils/validators/validator';
 
 
-let maxLength20 = maxLengthCreator(20);
+let maxLength40 = maxLengthCreator(40);
 const Input = FormsCreator("input");
 
 const LoginForm = (props) => {
@@ -13,27 +13,42 @@ const LoginForm = (props) => {
       <form onSubmit={props.handleSubmit}>
          <div>
             <Field component={Input}
-               validate={[required, maxLength20]}
-               name={"Login"}
+               validate={[required, maxLength40]}
+               name={"email"}
                placeholder={"Login"}
                type="text" />
          </div>
          <div>
             <Field component={Input}
-               validate={[required, maxLength20]}
-               name={"Password"}
+               validate={[required, maxLength40]}
+               name={"password"}
                placeholder={"Password"}
-               type="text" />
+               type="password" />
          </div>
          <div>
             <Field component={Input}
-               name={"checkbox"}
-               placeholder={"checkbox"}
+               name={"rememberMe"}
                type="checkbox" /> remember me
          </div>
          <button>Login</button>
       </form>
    )
 }
+
+// const LoginReduxForm = reduxForm({form: 'login'}) (LoginForm)
+
+// const Login = (props) => {
+
+//    const onSubmit = (formData) => {
+//       props.login(formData.email, formData.password, formData.rememberMe)
+//    }
+   
+//    return (
+//       <div className={s.wrapper}>
+//          <h2>Login</h2>
+//          <LoginReduxForm onSubmit={onSubmit}/>
+//       </div>
+//    )
+// }
 
 export default LoginForm;
