@@ -2,10 +2,9 @@ import { connect } from 'react-redux';
 import { follow, unfollow, setTotalUsersCount } from '../../redux/users-reducer';
 import React from 'react';
 import Users from './Users';
-import preloader from './../../assets/25.svg';
 import { toogleFollowingInProgress, onPageChanged, getUsers } from './../../redux/users-reducer';
-import { withAuthRedirect } from '../../hok/withAuthRedired';
 import { compose } from 'redux';
+import Preloader from './../../comons/Preloader';
 class UsersContainerAPI extends React.Component {
 
    componentDidMount() {
@@ -18,7 +17,7 @@ class UsersContainerAPI extends React.Component {
 
    render() {
       return <>
-         {this.props.isFetching ? <img alt={'isfetching'} src={preloader} /> : null}
+         {this.props.isFetching ? <Preloader/> : null}
          <Users onPageChanged={this.onPageChanged}
             users={this.props.users}
             follow={this.props.follow}
@@ -45,5 +44,4 @@ let mapStateToProps = (state) => {
 
 export default compose(
    connect(mapStateToProps, { follow, unfollow, setTotalUsersCount, toogleFollowingInProgress, getUsers, onPageChanged}),
-   withAuthRedirect
 )(UsersContainerAPI);

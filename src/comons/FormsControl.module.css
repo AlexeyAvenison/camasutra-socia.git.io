@@ -1,7 +1,11 @@
 .formControl {
    margin-top: 20px;
 }
-
+.errorMessage {
+   color: red;
+   background: white;
+   margin-top: 10px;
+}
 .error input,
 .error textarea {
    border: 4px red solid;

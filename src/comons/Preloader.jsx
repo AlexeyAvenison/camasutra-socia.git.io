@@ -4,7 +4,7 @@ import preloader from './../assets/25.svg'
 const Preloader = (props) => {
    return (
       <div >
-         {preloader}
+         <img alt={'isfetching'} src={preloader} />
       </div>
    )
 }

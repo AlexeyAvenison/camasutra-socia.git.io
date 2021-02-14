@@ -3,7 +3,6 @@ import Dialogs from './Dialogs';
 import { connect } from "react-redux";
 import { withAuthRedirect } from "../../hok/withAuthRedired";
 import { compose } from "redux";
-import { reduxForm } from "redux-form";
 
 let mapStateToProps = (state) => {
     return {
