@@ -2,6 +2,7 @@ import React from 'react';
 import s from './ProfileInfo.module.css';
 import Preloader from './../../../comons/Preloader.jsx'
 import ProfileStatus from './ProlieStatus'
+import ProfileStatusHook from './ProlieStatusHook';
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -15,7 +16,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.wrap}>
                 <img className={s.ava} src={props.profile.photos.large} />
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+                <ProfileStatusHook status={props.status} updateStatus={props.updateStatus}/>
                 <div className={s.description}>{props.profile.aboutMe}</div>
                 <div>
                     <span>Мои контакты</span>
