@@ -1,4 +1,4 @@
-const POST_MESSAGE_TEXT = 'POST-MESSAGE-TEXT';
+const POST_MESSAGE_TEXT = 'social-network/dialogs/POST-MESSAGE-TEXT';
 
 let initialState = {
    dialogs: [

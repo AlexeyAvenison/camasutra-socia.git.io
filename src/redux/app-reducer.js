@@ -1,6 +1,6 @@
 import { getAuthData } from './auth-reducer';
 
-const SET_INITIALIZED_APP = 'SET_INITIALIZED_APP'
+const SET_INITIALIZED_APP = 'social-network/app/SET_INITIALIZED_APP'
 
 let initialState = {
    initialized: false
