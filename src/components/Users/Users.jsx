@@ -1,25 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Pagination from './Pagination';
 import s from './Users.module.css';
 
 const Users = (props) => {
-   let pagesCount = Math.ceil(props.totalCount / props.pageSize);
-   let pages = [];
-   for (let i = 1; i <= pagesCount; i++) {
-      pages.push(i);
-   }
-
    return (
       <div className={s.wrapp}>
-         <div className={s.selectedPageWrap}>
-            {pages.map(p => {
-               return (
-                  <div className={props.currentPage === p && s.selectedPage}
-                     onClick={(e) => { props.onPageChanged(p) }} >{p}</div>
-               )
-            })}
-
+         <div>
+            <Pagination totalCount={props.totalCount}
+               pageSize={props.pageSize}
+               currentPage={props.currentPage}
+               onPageChanged={props.onPageChanged}
+               pagePortionSize={props.portionSize} />
          </div>
+      
          {
             props.users.map(u => <div className={s.usersItem} key={u.id}>
                <div className='s.usersItem-ava'>

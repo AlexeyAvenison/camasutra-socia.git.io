@@ -1,21 +1,17 @@
 .wrapp {
    padding: 15px;
 }
-
 .usersItem {
    display: flex;
    justify-content: space-between;
    padding: 10px;
 }
-
 .wrapImg {
    max-width: 50px;
 }
-
 .wrapImg img {
    width: 100%;
 }
-
 .info {
    display: flex;
    justify-content: space-between;
@@ -26,33 +22,22 @@
    border: 2px solid #000000;
    border-radius: 10px;
 }
-
 .infoWrap {
    display: flex;
    flex-direction: column;
    justify-content: space-between;
 }
-
 .usersItemBtn {
    width: 100px;
    padding: 5px;
 }
-
 .wrapImg {
    margin: 0 auto;
-}
-
-.selectedPageWrap {
-   display: flex;
-   text-align: center;
-   justify-content: center;
-   align-items: flex-end;
 }
 .selectedPageWrap div {
    cursor: pointer;
    margin: 5px;
 }
-
 .selectedPage {
    color: rgb(0, 0, 0);
    font-size: 25px;
@@ -60,4 +45,25 @@
    font-weight: bold;
    display: inline-block;
    margin: 0 5px;
+}
+.pagination {
+   display: flex;
+   justify-content: space-around;
+   margin: 15px 0;
+}
+.selectedPageWrap {
+   height: 31px;
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   align-items: flex-end;
+   width: 40%;
+}
+.paginationBtn {
+   width: 80px;
+   font-size: 18px;
+   line-height: 18px;
+   border-radius: 6px;
+   border: 0;
+   cursor: pointer;
 }
